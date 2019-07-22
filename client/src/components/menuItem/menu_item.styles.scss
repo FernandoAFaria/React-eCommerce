@@ -8,6 +8,9 @@
   align-items: center;
   margin: 15px;
   overflow: hidden;
+  &.large{
+    height: 380px;
+  }
   &:hover .menu-item-background {
     transform: translateZ(1px) scale(1.7);
   }

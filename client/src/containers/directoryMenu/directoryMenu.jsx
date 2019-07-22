@@ -31,12 +31,14 @@ export default class directoryMenu extends Component {
         {
           title: 'Collars & Leashes',
           background: collars,
-          id: 4
+          id: 4,
+          size: 'large'
         },
         {
           title: 'Food & Suppliments',
           background: food,
-          id: 5
+          id: 5,
+          size: 'large'
         }
       ]
     };
@@ -45,8 +47,8 @@ export default class directoryMenu extends Component {
   render() {
     return (
       <div className='directory-menu '>
-        {this.state.menu_items.map(({id, background, title}) => {
-          return <MenuItem key={id} id={id} background={background} title={title} />;
+        {this.state.menu_items.map(({id, background, title,size}) => {
+          return <MenuItem key={id} id={id} background={background} title={title} size={size} />;
         })}
       </div>
     );
