@@ -1,0 +1,40 @@
+.menu-item {
+  position: relative;
+  min-width: 30%;
+  height: 300px;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  overflow: hidden;
+  &:hover .menu-item-background {
+    transform: translateZ(1px) scale(1.7);
+  }
+  .menu-item-background {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    transition: transform 4s linear;
+  }
+
+  .content {
+    text-align: center;
+    padding: 0 25px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    .title {
+      font-weight: bold;
+    }
+    .subtitle {
+      font-weight: lighter;
+    }
+  }
+}
