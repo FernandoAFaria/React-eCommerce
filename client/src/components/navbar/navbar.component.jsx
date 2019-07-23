@@ -74,7 +74,7 @@ export default class Navbar extends Component {
           <div className='navbar-end'>
             <div className='navbar-item'>
               <div className='buttons'>
-                <a href='#test' className='button is-primary'>
+                <a href='#test' className='button is-danger'>
                   <strong>Sign up</strong>
                 </a>
                 <a href='#test' className='button is-light'>
