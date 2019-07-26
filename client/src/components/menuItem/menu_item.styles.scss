@@ -8,13 +8,15 @@
   align-items: center;
   margin: 15px;
   overflow: hidden;
-  border: 2px solid grey;
+  border: 1px solid black;
+  cursor: pointer;
   &.large{
     height: 380px;
   }
   &:hover .menu-item-background {
-    transform: translateZ(1px) scale(1.3);
+    animation: grow 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
+
   &:hover .content {
     background: rgba(255, 255, 255, 0.90);
   }
@@ -36,13 +38,19 @@
     align-items: center;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.7);
-    cursor: pointer;
+  
     text-transform: uppercase;
+    border: 1px solid black;
     .title {
       font-weight: bold;
     }
     .subtitle {
       font-weight: lighter;
+    }
+  }
+  @keyframes grow {
+    to {
+      transform: translateZ(1px) scale(1.2);
     }
   }
 }

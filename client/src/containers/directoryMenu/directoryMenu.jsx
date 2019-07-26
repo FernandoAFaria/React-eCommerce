@@ -5,7 +5,7 @@ import cat from '../../imgs/cat.jpg';
 import food from '../../imgs/food.jpg';
 import collars from '../../imgs/collars.jpg';
 import bed from '../../imgs/bed.jpg';
-import './directoryMenu.styles.scss'
+import './directoryMenu.styles.scss';
 import React, { Component } from 'react';
 
 export default class directoryMenu extends Component {
@@ -16,29 +16,34 @@ export default class directoryMenu extends Component {
         {
           title: 'Dog Supplies',
           background: dog,
-          id: 1
+          id: 1,
+          url: 'dogs'
         },
         {
           title: 'Cat Supplies',
           background: cat,
-          id: 2
+          id: 2,
+          url: 'cats'
         },
         {
           title: 'Carriers & Beds',
           background: bed,
-          id: 3
+          id: 3,
+          url: 'beds'
         },
         {
           title: 'Collars & Leashes',
           background: collars,
           id: 4,
-          size: 'large'
+          size: 'large',
+          url: 'collars'
         },
         {
           title: 'Food & Suppliments',
           background: food,
           id: 5,
-          size: 'large'
+          size: 'large',
+          url: 'food'
         }
       ]
     };
@@ -47,8 +52,8 @@ export default class directoryMenu extends Component {
   render() {
     return (
       <div className='directory-menu '>
-        {this.state.menu_items.map(({id, background, title,size}) => {
-          return <MenuItem key={id} id={id} background={background} title={title} size={size} />;
+        {this.state.menu_items.map(({ id, background, title, size, url }) => {
+          return <MenuItem key={id} id={id} background={background} url={url} title={title} size={size} />;
         })}
       </div>
     );

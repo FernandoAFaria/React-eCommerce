@@ -1,39 +1,43 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../imgs/dog-side.png';
 
 export default class Navbar extends Component {
-  componentDidMount() {
-    document.addEventListener('DOMContentLoaded', () => {
-      // Get all "navbar-burger" elements
-      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  expandMenu = () => {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-      // Check if there are any navbar burgers
-      if ($navbarBurgers.length > 0) {
-        // Add a click event on each of them
-        $navbarBurgers.forEach(el => {
-          el.addEventListener('click', () => {
-            // Get the target from the "data-target" attribute
-            const target = el.dataset.target;
-            const $target = document.getElementById(target);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+      // Add a click event on each of them
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+          // Get the target from the "data-target" attribute
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
 
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            el.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-          });
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
         });
-      }
-    });
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.expandMenu();
   }
 
   render() {
     return (
-      <nav className='navbar' role='navigation' aria-label='main navigation'>
+      <nav className='navbar is-light' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand'>
-          <a className='navbar-item' href='#test'>
+          <Link className='navbar-item' to='/'>
             <img src={logo} alt='logo' />
-          </a>
+          </Link>
 
-          <a
+          <Link
+          to="/"
             role='button'
             className='navbar-burger burger'
             aria-label='menu'
@@ -42,44 +46,48 @@ export default class Navbar extends Component {
             <span aria-hidden='true' />
             <span aria-hidden='true' />
             <span aria-hidden='true' />
-          </a>
+          </Link>
         </div>
 
         <div id='navbarBasicExample' className='navbar-menu'>
           <div className='navbar-start'>
-            <a href='#test' className='navbar-item'>
+            <Link to='/' className='navbar-item'>
               Home
-            </a>
+            </Link>
 
-            <a href='#test' className='navbar-item'>
+            <Link to='#test' className='navbar-item'>
               About
-            </a>
+            </Link>
 
             <div className='navbar-item has-dropdown is-hoverable'>
-              <a href='#test' className='navbar-link'>
+              <Link to='#test' className='navbar-link'>
                 Shop
-              </a>
+              </Link>
 
               <div className='navbar-dropdown'>
-                <a href='#test' className='navbar-item'>
+                <Link to='#test' className='navbar-item'>
                   Dogs
-                </a>
-                <a href='#test' className='navbar-item'>
+                </Link>
+                <Link to='#test' className='navbar-item'>
                   Cats
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
           <div className='navbar-end'>
+            <div className="navbar-item">
+              <input type="text" className="input" placeholder="search for a product..."/>
+              <button className="button is-info">Search</button>
+            </div>
             <div className='navbar-item'>
               <div className='buttons'>
-                <a href='#test' className='button is-danger'>
+                <Link to='#test' className='button is-danger'>
                   <strong>Sign up</strong>
-                </a>
-                <a href='#test' className='button is-light'>
+                </Link>
+                <Link to='#test' className='button is-light'>
                   Log in
-                </a>
+                </Link>
               </div>
             </div>
           </div>
